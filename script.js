@@ -35,7 +35,7 @@ function currentWeather(lat,lon) {
 
 
 
-    $('#current-weather').append(temp, humidity,wind)
+    $('#top-column').append(temp, humidity,wind)
     });
 }
 
@@ -68,7 +68,8 @@ function forecast(lat, lon) {
         var forecastWind = $('<p>').text('Wind: '+ data.list[i].wind.speed)
 
 
-        $('#forecast').append(forecastTemp, forecastHumidity, forecastWind)
+        $('#column-1').append(forecastTemp, forecastHumidity, forecastWind)
+        $('#column-2').append(forecastTemp, forecastHumidity, forecastWind)
       }
     });
 }
