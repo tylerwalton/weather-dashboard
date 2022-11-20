@@ -3,3 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.column {
+    border: 3px solid black;
+}
+
+.input {
+    margin: 20px;
+    padding: 1rem;
+}
+
+#top-column {
+    margin: 100px;
+    padding: 1rem;
+    margin-left: 400px;
+    margin-right: 400px;
+}
