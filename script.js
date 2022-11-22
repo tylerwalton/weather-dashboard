@@ -32,15 +32,15 @@ function currentWeather(lat, lon) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      cityEl.textContent = 
-      data.name + moment(data.dt, "X ").format("MM/DD/YYYY");
+      cityEl.textContent = ''
+        data.name + moment(data.dt, "X ").format("MM/DD/YYYY");
 
-      var temp = $("<h2>").text("Temperature: " + data.main.temp);
-      var humidity = document.createElement("h2");
-      humidity.textContent = "Humidity: " + data.main.humidity;
-      var wind = $("<h2>").text("Wind: " + data.wind.speed);
-
-      $("#top-column").append(temp, humidity, wind);
+      var temp =document.querySelector('#temp');
+      temp.textContent= "Temperature: " + data.main.temp;
+      var humidity =document.querySelector('#humidity');
+      humidity.textContent= "Humidity: " + data.main.humidity;
+      var wind =document.querySelector('#wind');
+      wind.textContent= "Wind: " + data.wind.speed;
     });
 }
 
@@ -56,9 +56,7 @@ function renderSearchHistory() {
     var cityText = event.target.innerHTML
     geoCode(cityText);
     })
-
-    }
-}
+}}
 
 // Function to get search history from local storage.
 function initSearchHistory() {
@@ -76,6 +74,7 @@ function forecast(lat, lon) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      container.textContent = '';
       for (var i = 4; i < data.list.length; i = i + 8) {
         var date = document.createElement('h3');
         date.textContent = moment(data.list[i].dt, 'X ').format('MM/DD/YYYY');
@@ -94,8 +93,6 @@ function forecast(lat, lon) {
         container.append(testTemp);
         container.append(testHumidity);
         container.append(testWind);
-      
-        
       }
     });
 }
