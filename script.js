@@ -1,10 +1,10 @@
 var button = document.querySelector("#search-button");
-var searchInput = document.querySelector("#search-input");
+var searchInput = document.querySelector(".search-input");
 var searchHistory = document.querySelector("history");
 var weatherApiKey = "aba22bac1a603ba9277fb78340a99600";
 var searchStorage = JSON.parse(localStorage.getItem("history")) || [];
 var recentSearches = document.querySelector(".recent");
-var container = document.querySelector(".container");
+var container = document.querySelector(".forecast-container");
 var cityEl = document.querySelector('#city-date');
 
 button.addEventListener("click", function () {
@@ -13,6 +13,8 @@ button.addEventListener("click", function () {
   geoCode(cityValue);
   setStorage(cityValue);
 });
+
+geoCode(searchStorage[searchStorage.length-1])
 
 function geoCode(searchValue) {
   fetch(
@@ -32,15 +34,14 @@ function currentWeather(lat, lon) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      cityEl.textContent = ''
-        data.name + moment(data.dt, "X ").format("MM/DD/YYYY");
+      cityEl.textContent = data.name + moment(data.dt, "X ").format("MM/DD/YYYY");
 
       var temp =document.querySelector('#temp');
-      temp.textContent= "Temperature: " + data.main.temp;
+      temp.textContent = "Temperature: " + data.main.temp + '°F';
       var humidity =document.querySelector('#humidity');
-      humidity.textContent= "Humidity: " + data.main.humidity;
+      humidity.textContent= "Humidity: " + data.main.humidity + "%";
       var wind =document.querySelector('#wind');
-      wind.textContent= "Wind: " + data.wind.speed;
+      wind.textContent= "Wind: " + data.wind.speed + 'mph';
     });
 }
 
@@ -79,20 +80,21 @@ function forecast(lat, lon) {
         var date = document.createElement('h3');
         date.textContent = moment(data.list[i].dt, 'X ').format('MM/DD/YYYY');
         console.log(data.list[i]);
-        container.append(date)
-        
-        var testTemp = document.createElement ('p')
-        testTemp.textContent = "Temperature " + data.list[i].main.temp;
+        // container.append(date)
+        var cardDiv = document.createElement('div')
+        cardDiv.setAttribute('class', 'card')
+        var testTemp = document.createElement ("p")
+        testTemp.textContent = "Temperature " + data.list[i].main.temp + '°F';
         
         var testHumidity = document.createElement("p");
-        testHumidity.textContent = "Humidity " + data.list[i].main.humidity;
+        testHumidity.textContent = "Humidity " + data.list[i].main.humidity + '%';
         
         var testWind = document.createElement("p");
-        testWind.textContent = "Wind" + data.list[i].wind.speed;
-        
-        container.append(testTemp);
-        container.append(testHumidity);
-        container.append(testWind);
+        testWind.textContent = "Wind " + data.list[i].wind.speed + 'mph';
+        cardDiv.append(date, testTemp, testHumidity, testWind);
+        container.append(cardDiv);
+        // container.append(testHumidity);
+        // container.append(testWind);
       }
     });
 }
@@ -103,10 +105,3 @@ function setStorage(history) {
 }
 
 renderSearchHistory();
-
-
-function searchAgain (event) {
-
-}
-
-// var fiveDayCards = document.createElement("div");

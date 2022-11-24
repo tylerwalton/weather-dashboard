@@ -4,27 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=<<device-width>>, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Weather Forecast</title>
   </head>
 
   <header class="Title">
-    <nav class="is-size-1 py-5 has-text-centered is-family-monospace has-background-info">WEATHER FORECAST</nav>
+    <nav class="h1">WEATHER FORECAST</nav>
   </header>
 
   <body>
-    <div class="input">
-      <input id="search-input" style="height: 38px;font-size:14pt;">
+    <div class="container">
+      <div class="row">
+      
+    <aside class="input col s3">
+      <input class="search-input" id="icon_prefix" placeholder="search or city">
       <button class="button is-dark" id="search-button">Submit</button>
-      <div class="listings" id="history"></div>
-    </div>
+      <!-- <div class="listings" id="history"></div> -->
+      <section class='recent'></section>
+    </aside>
 
-    <div class="main">
+    <!-- <div class="main">
       <div id="current-weather"></div>
       <div id="forecast"></div>
-    </div>
-
+    </div> -->
+    <div class="col s9">
     <section class="top-section">
       <div class="columns">
         <div class="column has-text-centered" id="top-column">
@@ -35,13 +39,13 @@
         </div>
     </section>
 
-<section class='recent'></section>
-
     <section class="section">
-      <div class="container">
+      <div class="forecast-container">
       </div>
     </section>
-
+    </div>
+    </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -53,6 +57,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
