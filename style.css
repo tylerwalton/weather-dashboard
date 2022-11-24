@@ -12,18 +12,12 @@ margin: 0px !important;
 }
 .column {
     border: 3px solid black;
+    margin: 20px;
 }
 
 .input {
     margin: 5px;
 }
-
-/* #top-column {
-    margin: 100px;
-    padding: 1rem;
-    margin-left: 400px;
-    margin-right: 400px;
-} */
 
 .forecast-container {
     display:flex;
@@ -35,3 +29,10 @@ margin: 0px !important;
     flex-direction: column;
 }
 
+.center-align {
+    font-size: 40px;
+}
+
+#temp, #humidity, #wind {
+    text-align: center;
+}

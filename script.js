@@ -15,7 +15,7 @@ button.addEventListener("click", function () {
 });
 
 geoCode(searchStorage[searchStorage.length-1])
-
+// function for accessing lat and lon
 function geoCode(searchValue) {
   fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=aba22bac1a603ba9277fb78340a99600`
@@ -27,14 +27,14 @@ function geoCode(searchValue) {
       forecast(data[0].lat, data[0].lon);
     });
 }
-
+// Function for current weather
 function currentWeather(lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=aba22bac1a603ba9277fb78340a99600`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      cityEl.textContent = data.name + moment(data.dt, "X ").format("MM/DD/YYYY");
+      cityEl.textContent = data.name + ' ' + moment(data.dt, "X ").format("MM/DD/YYYY");
 
       var temp =document.querySelector('#temp');
       temp.textContent = "Temperature: " + data.main.temp + '°F';
@@ -80,7 +80,6 @@ function forecast(lat, lon) {
         var date = document.createElement('h3');
         date.textContent = moment(data.list[i].dt, 'X ').format('MM/DD/YYYY');
         console.log(data.list[i]);
-        // container.append(date)
         var cardDiv = document.createElement('div')
         cardDiv.setAttribute('class', 'card')
         var testTemp = document.createElement ("p")
@@ -93,8 +92,6 @@ function forecast(lat, lon) {
         testWind.textContent = "Wind " + data.list[i].wind.speed + 'mph';
         cardDiv.append(date, testTemp, testHumidity, testWind);
         container.append(cardDiv);
-        // container.append(testHumidity);
-        // container.append(testWind);
       }
     });
 }
