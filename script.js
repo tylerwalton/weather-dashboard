@@ -18,7 +18,7 @@ geoCode(searchStorage[searchStorage.length-1])
 // function for accessing lat and lon
 function geoCode(searchValue) {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=aba22bac1a603ba9277fb78340a99600`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=5&appid=aba22bac1a603ba9277fb78340a99600`
   )
     .then((response) => response.json())
     .then((data) => {
