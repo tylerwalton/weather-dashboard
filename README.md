@@ -9,7 +9,7 @@ Here is a list of my motivations for this project!
 
 - learn how to properly use functions for each specific task we need accomplished
 - learn to fetch an API key
-- use jquery and bulma to simplify my JS and CSS
+- use jquery and materialize to simplify my JS and CSS
 - utilizing the console log to help me troubleshoot my coding mistakes
  
 
