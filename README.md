@@ -15,9 +15,10 @@ Here is a list of my motivations for this project!
 
 ## <u>**Screenshots**</u>
 
-![alt text](_C__Users_tyler_projects_weather-dashboard_index.html%20(1).png)
+![alt text](./assets/_C__Users_tyler_projects_weather-dashboard_index.html%20(1).png)
 
 ## <u>**Author**</u>
 
 Tyler Walton <br/>
 Tylerwalton300@gmail.com
+

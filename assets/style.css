@@ -36,3 +36,30 @@ margin: 0px !important;
 #temp, #humidity, #wind {
     text-align: center;
 }
+
+.historyBtn {
+    margin: 5px;
+}
+
+.forecastCard {
+margin: 5px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: bisque;
+}
+
+.current {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: bisque;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+}
+
+.column {
+    background-color: bisque;
+}

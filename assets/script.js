@@ -35,8 +35,10 @@ function currentWeather(lat, lon) {
     .then((data) => {
       console.log(data);
       cityEl.textContent = data.name + ' ' + moment(data.dt, "X ").format("MM/DD/YYYY");
-
-      var temp =document.querySelector('#temp');
+      const icon = document.querySelector ('#icon') 
+      icon.setAttribute ('src', `http://openweathermap.org/img/w/${data.weather[0].icon}.png`)
+      icon.setAttribute ('class', 'current')
+      var temp = document.querySelector('#temp');
       temp.textContent = "Temperature: " + data.main.temp + '°F';
       var humidity =document.querySelector('#humidity');
       humidity.textContent= "Humidity: " + data.main.humidity + "%";
@@ -52,6 +54,7 @@ function renderSearchHistory() {
   for (let i = 0; i < searchStorage.length; i++) {
     var button = document.createElement("button");
     button.textContent = searchStorage[i];
+    button.setAttribute('class', 'historyBtn')
     recentSearches.append(button);
     recentSearches.addEventListener('click', function(event){
     var cityText = event.target.innerHTML
@@ -77,20 +80,23 @@ function forecast(lat, lon) {
       console.log(data);
       container.textContent = '';
       for (var i = 4; i < data.list.length; i = i + 8) {
-        var date = document.createElement('h3');
+        var date = document.createElement('h5');
         date.textContent = moment(data.list[i].dt, 'X ').format('MM/DD/YYYY');
         console.log(data.list[i]);
         var cardDiv = document.createElement('div')
-        cardDiv.setAttribute('class', 'card')
+        cardDiv.setAttribute('class', 'card forecastCard')
         var testTemp = document.createElement ("p")
         testTemp.textContent = "Temperature " + data.list[i].main.temp + '°F';
-        
+        const icon = document.createElement('img')
+        icon.setAttribute(
+          "src",
+          `http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
         var testHumidity = document.createElement("p");
         testHumidity.textContent = "Humidity " + data.list[i].main.humidity + '%';
         
         var testWind = document.createElement("p");
         testWind.textContent = "Wind " + data.list[i].wind.speed + 'mph';
-        cardDiv.append(date, testTemp, testHumidity, testWind);
+        cardDiv.append(date, icon, testTemp, testHumidity, testWind);
         container.append(cardDiv);
       }
     });

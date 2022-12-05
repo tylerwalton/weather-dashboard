@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta name="viewport" content="width=<<device-width>>, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     
     <title>Weather Forecast</title>
   </head>
@@ -22,21 +22,19 @@
     <aside class="input col s3">
       <input class="search-input" id="icon_prefix" placeholder="search for city">
       <button class="button is-dark" id="search-button">Submit</button>
-      <!-- <div class="listings" id="history"></div> -->
+      
       <section class='recent'></section>
     </aside>
 
-    <!-- <div class="main">
-      <div id="current-weather"></div>
-      <div id="forecast"></div>
-    </div> -->
     <div class="col s9">
     <section class="top-section">
       <div class="columns">
         <div class="column" id="top-column">
           <h2 id="city-date" class="center-align">Current Weather</h2>
+          <img id="icon"></img>
           <p id="temp"></p>
           <p id="humidity"></p>
+          <div id="uvi"></div>
           <p id="wind"></p>
         </div>
     </section>
@@ -61,6 +59,6 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>
